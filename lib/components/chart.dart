@@ -1,5 +1,4 @@
 // ignore_for_file: sort_child_properties_last
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../models/transaction.dart';
@@ -36,11 +35,14 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    groupedTransactions;
     return Card(
       elevation: 6,
       margin: const EdgeInsets.all(20),
       child: Row(
-        children: const [],
+        children: groupedTransactions.map((tr) {
+          return Text('${tr['day']}: ${tr['value']}');
+        }).toList(),
       ),
     );
   }
